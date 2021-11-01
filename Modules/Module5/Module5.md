@@ -82,8 +82,31 @@ Give a python example for each logic operator in the module image.
 
  - Answers:
    - OR:
+y=28
+if y<=30 or y>20:
+ print("the statement is true.")
+elif y<1 or y>32:
+    print("the statement is false.")
+elif y<30 or y>=29:
+    print("the statement is true.")
+
    - AND: 
+y=25 
+if y<=30 and y>20:
+ print("the statement is true.")
+elif y<1 and y>32:
+    print("the statement is false.")
+elif y<30 and y>=26:
+    print("the statement is false.")
+
    - NOT: 
+y=29
+if y<=30 and(not y>23):
+ print("the statement is true.")
+elif y<1 or(not y>34):
+    print("the statement is true.")
+elif y<30 and(not y>=39): 
+    print("the statement is false.")
 
 
 Type down any class notes below this sentence:
