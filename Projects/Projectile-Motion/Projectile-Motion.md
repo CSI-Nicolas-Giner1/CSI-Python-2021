@@ -37,6 +37,7 @@
 
 <br>
 
+
 ## Print a descriptive paragraph. `(10pts)`
 * It must use all the variables defined above in correctly punctuated sentences that are grammatically correct.
 * Describe the experimental conditions and results.
