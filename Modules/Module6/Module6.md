@@ -101,6 +101,14 @@ Create an example of a JSON object with at least 4 values. It may represent anyt
 
  - Answer: The answer can be found in Module6.py.
 
+ What is the difference between serialization and deserialization?
+
+ - Answer: The difference between serialization and deserialization is that serialization converts an object into a string while the latter converts said string back into the original object.
+
+Research data persistance. What did you find?
+
+ - Answer: After some research, I found out that data persistence is a series of modules that serve to store and retrieve data to or from several formats from .txt, .csv, .json, etc.
+
 Type down any class notes below this sentence:
 
 
