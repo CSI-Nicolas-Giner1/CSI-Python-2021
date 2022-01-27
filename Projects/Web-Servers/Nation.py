@@ -1,7 +1,4 @@
-from plistlib import UID
-
-
-class random_nation:
+class Nation:
     def __init__(self,id:int,uid:str, nationality:str, language:str, capital:str, national_sport:str, flag: str):
         self.id= id
         self.uid= uid
