@@ -1,4 +1,4 @@
-import math
+:import math
 
 # This is the external code needed to make the .json class in the projectile function.
 # It reuses the previously established parameters to classify them together in a list.
