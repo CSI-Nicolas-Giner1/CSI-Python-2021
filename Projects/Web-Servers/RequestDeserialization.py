@@ -26,5 +26,4 @@ myPath = Path(__file__).parents[0]
 myFilePath = os.path.join(myPath, 'responses')
 
 with open(myFolderPath, 'w') as outfile:
-        json.dump([data.__dict__ for data in Nation], outfile)
-
+    json.dump([data.__dict__ for data in Nation], outfile)   
