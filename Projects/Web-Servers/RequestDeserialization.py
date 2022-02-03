@@ -1,5 +1,4 @@
 import os
-
 import json, ssl
 from pathlib import Path
 import urllib.request
@@ -26,5 +25,6 @@ for r in requestData:
 myPath = Path(__file__).parents[0]
 myFilePath = os.path.join(myPath, 'responses')
 
-    with open(myOutputFilePath, 'w') as outfile:
+with open(myFolderPath, 'w') as outfile:
         json.dump([data.__dict__ for data in Nation], outfile)
+
