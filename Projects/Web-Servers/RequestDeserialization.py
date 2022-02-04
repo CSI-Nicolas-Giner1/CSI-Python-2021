@@ -14,16 +14,17 @@ myPath = Path(__file__).parents[0]
 myFolderPath = os.path.join(myPath, 'responses')
 os.mkdir(myFolderPath)
 
-req = urllib.request.Request(nationURL)
-requestData = json.loads(urllib.request.urlopen(req).read())
+for i in range(100):
+    req = urllib.request.Request(nationURL)
+    requestData = json.loads(urllib.request.urlopen(req).read())
 
 for r in requestData:
-    nations:Nation = Nation(**r)
-    nations.append(nations)
-    print(Nation.id)
+    newNation:Nation = Nation(**r)
+    nations.append(newNation)
+    print(newNation.uid)
 
 myPath = Path(__file__).parents[0]
-myFilePath = os.path.join(myPath, 'responses')
+myFilePath = os.path.join(myFolderPath, f'response{newNation.uid}.json')
 
-with open(myFolderPath, 'w') as outfile:
-    json.dump([data.__dict__ for data in Nation], outfile)   
+with open(myFilePath, 'w') as outfile:
+    json.dump(newNation.__dict__, outfile)    
