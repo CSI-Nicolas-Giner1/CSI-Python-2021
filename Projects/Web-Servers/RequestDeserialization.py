@@ -1,6 +1,8 @@
+from asyncore import loop
 import os
 import json, ssl
 from pathlib import Path
+from urllib import response
 import urllib.request
 from Nation import Nation
 
@@ -18,13 +20,13 @@ for i in range(100):
     req = urllib.request.Request(nationURL)
     requestData = json.loads(urllib.request.urlopen(req).read())
 
-for r in requestData:
-    newNation:Nation = Nation(**r)
-    nations.append(newNation)
-    print(newNation.uid)
+    for r in requestData:
+        newNation:Nation = Nation(**r)
+        nations.append(newNation)
+        print(newNation.uid)
 
-myPath = Path(__file__).parents[0]
-myFilePath = os.path.join(myFolderPath, f'response{newNation.uid}.json')
+        myFilePath = os.path.join(myFolderPath, f'response{newNation.uid}.json')
 
-with open(myFilePath, 'w') as outfile:
-    json.dump(newNation.__dict__, outfile)    
+        with open(myFilePath, 'w') as outfile:
+            json.dump(newNation.__dict__, outfile)
+
