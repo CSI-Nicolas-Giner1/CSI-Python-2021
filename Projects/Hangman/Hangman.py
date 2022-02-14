@@ -99,9 +99,13 @@ def get_input():
         Start= input(f"Name a letter for this nationality: ")
 
         if(len(Start) != 1):
-            print("error")
+            print("Error. It's too long. Try again")
             continue
-        if()
+        if(Start.isnumeric()):
+            print("Error. Don't use a number. Try again.")
+            
+            continue 
+    
         return Start
 
 
