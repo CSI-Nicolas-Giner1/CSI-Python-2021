@@ -92,19 +92,19 @@ Steps = ["""
 
 print(Steps[0])
 
-# Start= input(f"Name the nationality of the nation")
 print(len(newNation.nationality)*" _ ")
 
 def get_input():
     while(True):
-        # ask for input
         Start= input(f"Name a letter for this nationality: ")
 
-        # Validate input
         if(len(Start) != 1):
             print("error")
             continue
+        if()
         return Start
+
+
 
     
 
