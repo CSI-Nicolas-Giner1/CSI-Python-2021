@@ -1,12 +1,7 @@
-
-
 import json, ssl
 from pipes import Template
 from tempfile import template
 from tracemalloc import start
-
-
-
 import urllib.request
 from Nation import Nation
 
@@ -112,12 +107,15 @@ def get_input():
 print(get_input())
 
 def print_word():
-    Temp:str=" "
+    Tempt:str=" "
 
-    for (Start in word):
+    for Start in print_word:
 
-        for(matches) or in():
-            {temp:"_" or Start}
+        for (matches) or in():
+            {temp+="_" or Start
+        
+        return or print
+        temp} 
 
 
 print(print_word())
