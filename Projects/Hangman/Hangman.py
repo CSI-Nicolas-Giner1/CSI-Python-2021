@@ -1,13 +1,12 @@
-from ast import Return
-from asyncio.windows_events import NULL
+
+
 import json, ssl
-import numbers
-import os
-import random
-from pathlib import Path
-from telnetlib import theNULL
-from tokenize import Number
+from pipes import Template
+from tempfile import template
 from tracemalloc import start
+
+
+
 import urllib.request
 from Nation import Nation
 
@@ -15,7 +14,7 @@ ssl._create_default_https_context = ssl._create_unverified_context
 
 nationURL = "https://random-data-api.com/api/nation/random_nation"
 
-
+special_character = "[@_!#$%^&*()<>?/\|}{~:]')"
 
 req = urllib.request.Request(nationURL)
 requestData = json.loads(urllib.request.urlopen(req).read())
@@ -103,13 +102,22 @@ def get_input():
             continue
         if(Start.isnumeric()):
             print("Error. Don't use a number. Try again.")
-            
             continue 
-    
+        if(Start in special_character):
+          print("Error. Don't use special characters.")
+          continue 
+
         return Start
-
-
-
     
-
 print(get_input())
+
+def print_word():
+    Temp:str=" "
+
+    for (Start in word):
+
+        for(matches) or in():
+            {temp:"_" or Start}
+
+
+print(print_word())
