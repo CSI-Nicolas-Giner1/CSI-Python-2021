@@ -17,6 +17,8 @@ requestData = json.loads(urllib.request.urlopen(req).read())
 newNation:Nation = Nation(**requestData)
 # print(newNation.nationality)
 
+attempted_letters = []
+
 Steps = ["""
 |------------|
 |
@@ -101,21 +103,27 @@ def get_input():
         if(Start in special_character):
           print("Error. Don't use special characters.")
           continue 
-
+        
+        attempted_letters.append(Start)
         return Start
     
 print(get_input())
 
 def print_word():
     Tempt:str=" "
+    for Start in newNation.nationality:
+        if Start in attempted_letters:
+            Tempt+= Start
+        else:
+            Tempt+= " _ "
+    print(Tempt)
 
-    for Start in print_word:
+def print_steps():
+    mistake = 0
+    for Start in attempted_letters:
+        if Start not in newNation.nationality:
+            mistake = mistake + 1
+    
+    print (Steps[mistake])
 
-        for (matches) or in():
-            {temp+="_" or Start
-        
-        return or print
-        temp} 
 
-
-print(print_word())
