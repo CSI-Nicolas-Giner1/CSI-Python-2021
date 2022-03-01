@@ -123,7 +123,14 @@ def print_steps():
     for Start in attempted_letters:
         if Start not in newNation.nationality:
             mistake = mistake + 1
+        if mistake > 6:
+            print ("Game Over. Start again!")
+             
+
     
     print (Steps[mistake])
 
-
+while True:
+    get_input()
+    print_word()
+    print_steps()
