@@ -102,7 +102,7 @@ def get_input():
             continue 
         if(Start in special_character):
           print("Error. Don't use special characters.")
-          continue 
+          continue  
         
         attempted_letters.append(Start)
         return Start
@@ -123,9 +123,10 @@ def print_steps():
     for Start in attempted_letters:
         if Start not in newNation.nationality:
             mistake = mistake + 1
+            print (f"Attempted Letters: [{Start}]") 
         if mistake > 6:
             print ("Game Over. Start again!")
-             
+        
 
     
     print (Steps[mistake])
