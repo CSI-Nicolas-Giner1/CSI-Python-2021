@@ -143,7 +143,7 @@ def print_word():
 # It also makes a logical progression system that follows the hangman's rules.
 def print_steps():
 # Remember how each step in the hangman game is represented by the 'Steps' array in the beginning of the code?
-# Each variable in that array is organized by a binary that registers them from 0 to 6.
+# Each variable in that array is organized by a binary that registers them from 0 to 5.
 # By turning the mistakes into a number variable, you artifically program the game into registering each step.
     mistake = 0
     for Start in attempted_letters:
@@ -161,7 +161,9 @@ def print_steps():
 # This makes it so that the steps are printed while following the logical progression of the hangman game.    
     print (Steps[mistake])
 
-
+# This makes it so that the game loops whenver you win or lose.
+# I have no fucking clue as to what to do though.
+# Sorry Cobian!!!  
 while True:
     Start = get_input()
     attempted_letters = []
@@ -169,7 +171,7 @@ while True:
         get_input()
         print_word()
         print_steps()
-        if ():
+        if (Start ):
             break 
     
 
