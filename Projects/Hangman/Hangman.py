@@ -154,7 +154,7 @@ def print_steps():
 # And once the game reaches the hangman's limit, in this case being the last leg, then the game is over.
         if mistake > 5:
 # This communicates the game over to the player.  
-            print ("Game Over. Start again!")
+            print (f"Game Over. Start again! The word was: [{newNation.nationality}]")
    
         
 
@@ -162,8 +162,6 @@ def print_steps():
     print (Steps[mistake])
 
 # This makes it so that the game loops whenver you win or lose.
-# I have no fucking clue as to what to do though.
-# Sorry Cobian!!!  
 while True:
     Start = get_input()
     attempted_letters = []
@@ -171,8 +169,9 @@ while True:
         get_input()
         print_word()
         print_steps()
-        if (Start ):
+        if Start in newNation.nationality:
             break 
+
     
 
     
