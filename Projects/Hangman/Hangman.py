@@ -92,7 +92,7 @@ print(len(newNation.nationality)*" _ ")
 
 def get_input():
     while(True):
-        Start= input(f"Name a letter for this nationality: ")
+        Start= input(f"Welcome to Hangman! Name a letter for this nationality: ")
 
         if(len(Start) != 1):
             print("Error. It's too long. Try again")
@@ -101,9 +101,11 @@ def get_input():
             print("Error. Don't use a number. Try again.")
             continue 
         if(Start in special_character):
-          print("Error. Don't use special characters.")
-          continue  
-        
+            print("Error. Don't use special characters.")
+            continue  
+        if(Start in attempted_letters):
+            print("Error. Letter has already been used. Try again.")
+            continue 
         attempted_letters.append(Start)
         return Start
     
@@ -126,12 +128,17 @@ def print_steps():
             print (f"Attempted Letters: [{Start}]") 
         if mistake > 6:
             print ("Game Over. Start again!")
+   
         
 
     
     print (Steps[mistake])
 
+
 while True:
     get_input()
     print_word()
     print_steps()
+ 
+
+    
