@@ -7,18 +7,22 @@ import urllib.request
 # Import Nation files so that the random_nation nationalities are used for the hangman game.
 from Nation import Nation
 
-ssl._create_default_https_context = ssl._create_unverified_context
+def get_word(): 
+    ssl._create_default_https_context = ssl._create_unverified_context
 
-nationURL = "https://random-data-api.com/api/nation/random_nation"
+    nationURL = "https://random-data-api.com/api/nation/random_nation"
 
-special_character = "[@_!#$%^&*()<>?/\|}{~:]')"
+    req = urllib.request.Request(nationURL)
 
-req = urllib.request.Request(nationURL)
-requestData = json.loads(urllib.request.urlopen(req).read())
+    requestData = json.loads(urllib.request.urlopen(req).read())
 
-newNation:Nation = Nation(**requestData)
+    newNation:Nation = Nation(**requestData)
 
-attempted_letters = []
+    return newNation.nationality.upper()
+
+
+
+# attempted_letters = []
 
 # This array will be used so that the game is able to progress after each mistake you make.
 # It begins at 0 and once it passes 6, it will declare a "game over".
@@ -89,18 +93,19 @@ Steps = ["""
 ]
 
 
-print(Steps[0])
+# print(Steps[0])
 
 # This will make it so that the hangman's words/names will be covered by underscores.
 # Further on, these will be programmed to be replaced by the correct letters you guess.
-print(len(newNation.nationality)*" _ ")
+# print(len(newNation.nationality)*" _ ")
 
 # This will register whether your inputs are invalid numbers and symbols or already used letters and inputs that go beyond the one-character limit.
 def get_input():
 # The while(True) code is there to maintain a loop that will pause and continue for whatever input you make in this game.
     while(True):
+        special_character = "[@_!#$%^&*()<>?/\|}{~:]')"
 # Obviously, this input prompts the game by asking the player to insert a letter for a nationality. 
-        Start= input(f"Welcome to Hangman! Name a letter for this nationality: ")
+        Start= input(f"Welcome to Hangman! Name a letter for this nationality: ").upper()
 # This registers when you've gone past the character limit.
         if(len(Start) != 1):
             print("Error. It's too long. Try again")
@@ -124,13 +129,13 @@ def get_input():
 #The 'return Start' ('Start' being the input that starts the game) makes the game loop back and prompt you once again to input another letter after correctly inputting a letter. 
         return Start
 # This just makes the function appear in the screen.    
-print(get_input())
+# print(get_input())
 
 # Now, this function makes it so that the correct letters you input replace the empty blanks for the nationality you're trying to guess.
 def print_word():
 # The 'tempt' is a temporary line of code that will eventually be replaced by the correct letter you input. 
     Tempt:str=" "
-    for Start in newNation.nationality:
+    for Start in newNation:
         if Start in attempted_letters:
 # If you guess a correct letter in this nationality, the 'tempt' code will then be replaced by it.
             Tempt+= Start
@@ -141,37 +146,45 @@ def print_word():
 
 # This function makes it so that the game registers each mistake you make and the game. 
 # It also makes a logical progression system that follows the hangman's rules.
-def print_steps():
+def countMistakes():
 # Remember how each step in the hangman game is represented by the 'Steps' array in the beginning of the code?
 # Each variable in that array is organized by a binary that registers them from 0 to 5.
 # By turning the mistakes into a number variable, you artifically program the game into registering each step.
     mistake = 0
     for Start in attempted_letters:
-        if Start not in newNation.nationality:
+        if Start not in newNation:
 # For each mistake you make, the variable's value changes, thus affecting the progression of the game.
             mistake = mistake + 1
             print (f"Attempted Letters: [{Start}]") 
 # And once the game reaches the hangman's limit, in this case being the last leg, then the game is over.
-        if mistake > 5:
+        # if :
 # This communicates the game over to the player.  
-            print (f"Game Over. Start again! The word was: [{newNation.nationality}]")
-   
-        
-
+            
 # This makes it so that the steps are printed while following the logical progression of the hangman game.    
-    print (Steps[mistake])
+    # print (Steps[mistake])
+    return mistake
 
-# This makes it so that the game loops whenver you win or lose.
+def countCorrect():
+# This makes it so that the game loops whenever you win or lose.
+
 while True:
-    Start = get_input()
+    newNation = get_word()
     attempted_letters = []
     while True:
+        mistake = countMistakes()
+        print (Steps[mistake])
         get_input()
         print_word()
-        print_steps()
-        if Start in newNation.nationality:
-            break 
 
-    
+        # Lose Game
+        if(mistake > 5):
+            print (f"Game Over. Start again! The word was: [{newNation}]")
+            break
+
+        # Win Game
+        if():
+            print (f"Game Won. Start again!")
+            break
+
 
     
