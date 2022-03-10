@@ -101,9 +101,9 @@ def get_input():
     while(True):
         special_character = "[@_!#$%^&*()<>?/\|}{~:]')"
 
-        # This will make it so that the hangman's words/names will be covered by underscores.
-        # Further on, these will be programmed to be replaced by the correct letters you guess.
-        print(len(newNation)*" _ ")
+        # # This will make it so that the hangman's words/names will be covered by underscores.
+        # # Further on, these will be programmed to be replaced by the correct letters you guess.
+        # print(len(newNation)*" _ ")
 
         # Obviously, this input prompts the game by asking the player to insert a letter for a nationality. 
         Start= input(f"Welcome to Hangman! Name a letter for this nationality: ").upper()
@@ -170,8 +170,10 @@ def countMistakes():
 
 
 def countCorrect():
-    correct =[]
-
+    correct = 0
+    for letter in newNation:
+        if letter in attempted_letters:
+            correct = correct + 1
 
     return correct
 
@@ -192,7 +194,7 @@ while (True):
             break
 
         # Win Game
-        if():
+        if(countCorrect() == len(newNation)):
             print (f"Game Won. Start again!")
             print("-----------------------------------------------------------")
             break
