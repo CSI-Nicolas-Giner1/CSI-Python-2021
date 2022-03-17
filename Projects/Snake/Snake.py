@@ -1,5 +1,6 @@
 # In order to import pygame, you must first install it to python by typing 'pip install pygame' on the terminal
-# If that doesn't work for you, try downloading pygame manually and then restart the visual studio code application
+# If that doesn't work for you, try manually downloading the newest version of python, allow PATH to be included, and then restart the visual studio code application
+# After that, type 'pip install pygame' once again
 import pygame
 import time
 import random
@@ -77,7 +78,7 @@ def gameLoop():
 
     # Set the coordinates of the food by giving it a random range within the borders of the game screen 
     foodx = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
-    foody = round(random.randrange(0, dis_width - snake_block) / 10.0) * 10.0
+    foody = round(random.randrange(0, dis_height - snake_block) / 10.0) * 10.0
 
     while not game_over:
 
@@ -105,7 +106,8 @@ def gameLoop():
 
                         # By writing "gameLoop()", you allow the program to resume its operations and restart the game
                         gameLoop()
-        
+
+        # This simply allows you to quit the game manually without having to lose
         for event in pygame.event.get():
             if event.type == pygame.QUIT:
                 game_over= True
@@ -149,10 +151,11 @@ def gameLoop():
         snake_Head.append(y1)
         snake_List.append(snake_Head)
 
-        
+        # This makes sure that the length of the snake only grows in accordance to the amount of food it eats
         if len(snake_List) > Length_of_snake:
             del snake_List[0]
 
+        # This makes it so that the game is over once the snake touches any part of its body
         for x in snake_List[:-1]:
             if x == snake_Head:
                 game_close = True
