@@ -17,7 +17,7 @@ driver = webdriver.Chrome(executable_path = driverPath, options = options)
 
 driver.get = ("https://mangasee123.com/manga/Hajime-No-Ippo")
 
-Chapters = driver.find_element(By.CLASS_NAME, 'Hajime No Ippo').text
+Chapters = driver.find_element(By.CLASS_NAME, '').text
 print(Chapters)
 driver.close()
 
